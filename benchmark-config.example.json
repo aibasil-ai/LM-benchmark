@@ -1,0 +1,44 @@
+{
+  "lmstudio": {
+    "apiBase": "http://localhost:1234",
+    "openaiBaseUrl": "http://localhost:1234/v1",
+    "apiTokenEnv": "LMSTUDIO_API_TOKEN"
+  },
+  "models": [
+    {
+      "name": "gemma4-26b-a4b",
+      "id": "google/gemma-4-26b-a4b"
+    },
+    {
+      "name": "qwen3-14b",
+      "id": "qwen/qwen3-14b"
+    }
+  ],
+  "quality": {
+    "enabled": true,
+    "lmEvalPath": ".\\.venv\\Scripts\\lm-eval.exe",
+    "backend": "local-chat-completions",
+    "tasks": [
+      "truthfulqa_gen",
+      "gsm8k"
+    ],
+    "limit": 200,
+    "applyChatTemplate": true,
+    "numConcurrent": 1,
+    "maxRetries": 3,
+    "tokenizedRequests": false,
+    "extraModelArgs": []
+  },
+  "performance": {
+    "enabled": true,
+    "warmupRuns": 1,
+    "runsPerPrompt": 5,
+    "temperature": 0,
+    "maxOutputTokens": 256,
+    "prompts": [
+      "Explain quantum entanglement in three sentences.",
+      "Why is the sky blue? Give one everyday example.",
+      "Write a short product description for a reusable insulated bottle."
+    ]
+  }
+}
